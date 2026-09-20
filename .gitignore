@@ -1,0 +1,10 @@
+target/
+config/config.json
+data/
+output/
+feedback/inbox/
+feedback/processed/
+feedback/screenshots/
+tools/
+brand/logo.png
+*.log

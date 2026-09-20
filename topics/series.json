@@ -1,0 +1,9 @@
+{
+  "_comment": "Series counters. The factory stores live counters in data/state.json; values here seed a fresh install (Sidemen Setup Series 1-7 already shipped).",
+  "series": [
+    { "name": "Doomsday Tech File", "current": 2 },
+    { "name": "Tech They Actually Use", "current": 2 },
+    { "name": "Creator Setup Series", "current": 7 },
+    { "name": "Gadget Court", "current": 0 }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "_comment": "Hashtag source of truth. Edit freely (or let the QA module rewrite it): re-read on every plan, no restart needed. 'trending' = currently hot, rotate often.",
+  "base": [
+    "#tech", "#gadgets", "#techtok", "#gadgetlover", "#innovation", "#futuretech",
+    "#smartgadgets", "#techfinds", "#ezgoodfinds", "#viralgadgets", "#cooltech", "#techreels"
+  ],
+  "trending": [
+    "#aitools", "#techtrends", "#gadgetreview", "#desksetup", "#battlestation",
+    "#smarthome", "#techsetup", "#unboxingtech", "#musthavegadgets", "#techshorts"
+  ],
+  "per_archetype": {
+    "celebrity_tech": ["#conceptvisual", "#movieposter", "#cinematic", "#celebritytech", "#whatif"],
+    "weird_gadget": ["#didyouknow", "#amazongadgets", "#povcamera", "#hiddengems", "#gadgetsofiktok", "#weirdtech"],
+    "comparison": ["#vs", "#comparison", "#whichone", "#buyersguide", "#headtohead", "#thisorthat"],
+    "series": ["#setupseries", "#setuptour", "#deskgoals", "#episodiccontent", "#followforpart2", "#battlestations"],
+    "throw_away": ["#lifehacks", "#throwitaway", "#upgradeyourlife", "#obsolete", "#smartswap", "#hackyourday"],
+    "creator_verified": ["#verifiedgear", "#creatorsetup", "#techtheyuse", "#nodds", "#realreview", "#trustedgea"]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "_comment": "EZ Good Finds — Content Factory config. Copy to config.json and edit. Unknown keys are ignored.",
+  "brand": {
+    "name": "EZ Good Finds",
+    "_logo": "OFFICIAL logo PNG with alpha. Never let AI redraw it. Near-white pixels = the power/house glyph (stays white); everything else is recoloured to the artwork's dominant colour.",
+    "logoPath": "brand/logo.png",
+    "logoMargin": 36,
+    "logoMaxWidth": 300
+  },
+  "canvas": { "width": 1080, "height": 1920 },
+  "slots": {
+    "timezone": "Europe/Tirane",
+    "times": ["10:00", "18:00"],
+    "leadMinutes": 90,
+    "pollSeconds": 30
+  },
+  "llm": {
+    "_comment": "provider: ollama (free, local — recommended) | openai (any OpenAI-compatible server) | none (templates only)",
+    "provider": "ollama",
+    "ollamaUrl": "http://127.0.0.1:11434",
+    "model": "qwen2.5:7b",
+    "visionModel": "",
+    "_vision": "optional Ollama vision model (e.g. minicpm-v:8b) that reads feedback screenshots for you",
+    "temperature": 0.85,
+    "openaiCompatible": { "baseUrl": "http://127.0.0.1:1234/v1", "apiKey": "", "model": "" }
+  },
+  "comfyui": {
+    "_comment": "mode: auto (use ComfyUI when reachable) | comfy | fallback. Export YOUR workflow with Save (API Format) to workflowPath, then set promptNodeId/promptField (the text node) and baseImageNodeId (the LoadImage node that receives the deterministic base layout; empty if your graph needs none).",
+    "mode": "auto",
+    "url": "http://127.0.0.1:8188",
+    "workflowPath": "comfyui/workflow.json",
+    "promptNodeId": "6",
+    "promptField": "text",
+    "baseImageNodeId": "0",
+    "timeoutSeconds": 900
+  },
+  "video": { "enabled": true, "ffmpegPath": "ffmpeg", "seconds": 10, "fps": 30 },
+  "postiz": {
+    "_comment": "Self-hosted: http://YOUR-HOST/public/v1 — Cloud: https://api.postiz.com/public/v1. channels empty = post to ALL connected integrations.",
+    "baseUrl": "http://127.0.0.1:5000/public/v1",
+    "apiKey": "",
+    "channels": ["x", "youtube", "tiktok", "instagram", "facebook", "threads"],
+    "youtubePlaylistId": ""
+  },
+  "publish": {
+    "_comment": "dry-run = write payloads to outbox only (DEFAULT — review a week of output first). live = really schedule on Postiz.",
+    "mode": "dry-run",
+    "outbox": "output/publish"
+  },
+  "feedback": {
+    "enabled": true,
+    "port": 8787,
+    "token": "",
+    "inboxDir": "feedback/inbox",
+    "screenshotsDir": "feedback/screenshots",
+    "directiveDefaultRuns": 10
+  },
+  "hashtags": { "poolPath": "trends/hashtag-pool.json", "min": 12, "max": 28 },
+  "dataDir": "data",
+  "outDir": "output",
+  "topicsDir": "topics"
+}

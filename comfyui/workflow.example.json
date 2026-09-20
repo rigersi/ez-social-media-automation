@@ -1,0 +1,41 @@
+{
+  "_READ_ME": [
+    "THIS IS ONLY AN EXAMPLE OF THE INJECTION CONTRACT — do not run it as-is.",
+    "In ComfyUI open YOUR working graph (qwen_image_edit_fp8_e4m3fn + qwen_2.5_vl_7b_fp8_scaled",
+    "text encoder + qwen_image_vae + Qwen-Image-Edit-Lightning-4steps LoRA), then:",
+    "  Workflow menu -> Export -> 'Save (API Format)' -> save over comfyui/workflow.json",
+    "Then in config.json set:",
+    "  comfyui.promptNodeId    = id of the node whose text widget receives the art prompt",
+    "                            (usually a CLIPTextEncode / QwenTextEncode node)",
+    "  comfyui.promptField     = widget name, usually \"text\"",
+    "  comfyui.baseImageNodeId = id of the LoadImage node that should receive the deterministic",
+    "                            base layout PNG (the factory uploads it automatically).",
+    "                            Use \"\" if your graph generates from scratch instead.",
+    "The factory injects plan.art_prompt (which always reserves the top-left logo zone and",
+    "keeps the TikTok/Shorts safe zones calm) and queues /prompt, polls /history, pulls /view."
+  ],
+  "0": {
+    "class_type": "LoadImage",
+    "inputs": { "image": "base-layout-uploaded-by-factory.png" }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": { "text": "ART PROMPT INJECTED HERE BY THE FACTORY", "clip": ["11", 0] }
+  },
+  "11": {
+    "class_type": "CLIPLoader",
+    "inputs": { "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors", "type": "qwen_image" }
+  },
+  "12": {
+    "class_type": "UNETLoader",
+    "inputs": { "unet_name": "qwen_image_edit_fp8_e4m3fn.safetensors", "weight_dtype": "fp8_e4m3fn" }
+  },
+  "13": {
+    "class_type": "VAELoader",
+    "inputs": { "vae_name": "qwen_image_vae.safetensors" }
+  },
+  "20": {
+    "class_type": "SaveImage",
+    "inputs": { "filename_prefix": "ezgoodfinds/poster" }
+  }
+}

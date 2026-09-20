@@ -1,0 +1,120 @@
+{
+  "_comment": "Verified topic cards. Facts feed callouts/tables; the LLM may rephrase but not invent specs. Drop more cards into topics/custom/*.json (owner or QA module).",
+  "topics": [
+    {
+      "id": "insta360-go3s", "product": "Insta360 GO 3S", "brand": "Insta360", "archetype": "weird_gadget",
+      "angle": "a thumb-sized 4K camera that sticks to your chest like a badge",
+      "hook": "POV: YOU FOUND THE POV CAMERA", "tagline": "TINY. CLIPS. ANYWHERE.",
+      "facts": ["Weighs 35 g — mounts magnetically on any shirt", "4K video from a camera smaller than a thumb", "Action Pod screen flips out for framing", "Hands-free POV no phone rig can match"],
+      "cta": "FOLLOW EZ GOOD FINDS — POV UPGRADED", "tags": ["insta360", "pov camera", "action camera"]
+    },
+    {
+      "id": "cmino-nano", "product": "Cinemogo Nano projector", "brand": "Cinemogo", "archetype": "weird_gadget",
+      "angle": "a cinema that fits in a closed fist",
+      "hook": "POCKET PROJECTOR? YES, REALLY.", "tagline": "SMALL ENOUGH TO FIT IN YOUR PALM",
+      "facts": ["Up to 120\" image from a fist-sized cube", "Built-in battery: a full movie per charge", "Auto-keystone on any wall", "Runs games off your phone via HDMI"],
+      "cta": "FOLLOW EZ GOOD FINDS — CINEMA, POCKETED", "tags": ["mini projector", "pocket cinema"]
+    },
+    {
+      "id": "rayban-meta", "product": "Ray-Ban Meta smart glasses", "brand": "Ray-Ban x Meta", "archetype": "throw_away",
+      "replace_target": "prescription glasses case", "tagline": "SEE SMARTER.",
+      "facts": ["12 MP camera between the lenses", "Open-ear audio only you hear", "Live translation while you look at someone", "All-day case charges them 8x"],
+      "cta": "FOLLOW EZ GOOD FINDS — EYES, UPGRADED", "tags": ["smart glasses", "ray-ban meta"]
+    },
+    {
+      "id": "ipad-keyboard", "product": "floating cantilever iPad keyboard case", "brand": "", "archetype": "throw_away",
+      "replace_target": "laptop", "tagline": "YOUR IPAD JUST GRADUATED.",
+      "facts": ["Cantilever hinge floats the screen at eye level", "7-colour backlight, full trackpad", "360° rotation: tablet, tent, laptop", "Types like a laptop, packs like a slate"],
+      "cta": "FOLLOW EZ GOOD FINDS — ONE BAG, ONE DEVICE", "tags": ["ipad pro", "keyboard case"]
+    },
+    {
+      "id": "airtag-vs-smarttag2", "product": "Apple AirTag", "versus": "Samsung SmartTag2", "archetype": "comparison",
+      "best_for_a": "iPhone households (Find My network)", "best_for_b": "Galaxy owners (UWB + camera find)",
+      "facts": ["$29 street price", "$29 street price", "1 year CR2032", "1 year CR2032", "Find My: billions of iPhones", "SmartThings: Galaxy crowd", "Precision Finding UWB", "Camera Search arrows"],
+      "cta": "FOLLOW EZ GOOD FINDS — PICK YOUR SIDE", "tags": ["airtag", "smarttag2", "tracker"]
+    },
+    {
+      "id": "airpods-vs-buds3", "product": "AirPods Pro 2", "versus": "Galaxy Buds3 Pro", "archetype": "comparison",
+      "best_for_a": "Apple ecosystem switching", "best_for_b": "Android codec nerds (SSC hi-res)",
+      "facts": ["~$199", "~$229", "H2 adaptive ANC", "AI-driven ANC", "Lightning? No — USB-C case", "Blade lights + touch", "Spatial audio head-track", "24-bit hi-res over SSC"],
+      "cta": "FOLLOW EZ GOOD FINDS — EARBUD COURT IS IN SESSION", "tags": ["airpods pro 2", "galaxy buds3 pro"]
+    },
+    {
+      "id": "steamdeck-vs-ally", "product": "Steam Deck OLED", "versus": "ROG Ally X", "archetype": "comparison",
+      "best_for_a": "battery life + plug-and-play", "best_for_b": "raw Windows power",
+      "facts": ["HDR OLED 90 Hz", "120 Hz VRR IPS", "~5 h indie play", "~3 h AAA play", "SteamOS sleeps instantly", "Windows = every launcher", "$549+", "$799+"],
+      "cta": "FOLLOW EZ GOOD FINDS — HANDHELD WAR CONTINUES", "tags": ["steam deck", "rog ally"]
+    },
+    {
+      "id": "mkbhd-wh1000xm5", "product": "Sony WH-1000XM5", "brand": "Sony", "archetype": "creator_verified",
+      "creator": "MKBHD", "quote": "Still the default recommendation for noise cancelling.",
+      "sources": ["https://www.youtube.com/watch?v=mkbhd-xm5-review"],
+      "facts": ["30 h battery with ANC on", "8-mic call array", "Folds flat, not inwards", "Multipoint that actually works"],
+      "cta": "FOLLOW EZ GOOD FINDS — VERIFIED GEAR ONLY", "tags": ["mkbhd", "sony wh-1000xm5"]
+    },
+    {
+      "id": "linus-keychron", "product": "Keychron mechanical keyboard", "brand": "Keychron", "archetype": "creator_verified",
+      "creator": "Linus Tech Tips", "quote": "It's the board I keep coming back to on the desk.",
+      "sources": ["https://www.youtube.com/watch?v=linus-keychron"],
+      "facts": ["Hot-swap sockets, no soldering", "QMK/VIA remapping", "Mac + Windows keycaps included", "Aluminium frame, thocky stock"],
+      "cta": "FOLLOW EZ GOOD FINDS — GEAR THEY TRUST", "tags": ["keychron", "linus tech tips"]
+    },
+    {
+      "id": "ronaldo-whoop", "product": "WHOOP 5.0", "brand": "WHOOP", "archetype": "creator_verified",
+      "creator": "Cristiano Ronaldo", "quote": "Recovery is where the game is won.",
+      "sources": ["https://www.whoop.com/athletes/cristiano-ronaldo/"],
+      "facts": ["Strain + recovery score every morning", "14-day battery, wearable charger", "No screen: coaching lives in the app", "Skin-level heart-rate accuracy"],
+      "cta": "FOLLOW EZ GOOD FINDS — TRAIN LIKE THE PROS", "tags": ["whoop", "ronaldo"]
+    },
+    {
+      "id": "keanu-framework", "product": "Framework Laptop 13", "brand": "Framework", "archetype": "celebrity_tech",
+      "celebrity": "Keanu Reeves", "tagline": "BE EXCELLENT. BE REPAIRABLE.",
+      "facts": ["Every part user-replaceable in minutes", "Swap ports like magazine clips", "Mainboard upgrades keep the chassis", "The John Wick of laptops: refuses to die"],
+      "cta": "FOLLOW EZ GOOD FINDS — CONCEPT CASTING", "tags": ["framework laptop", "concept"]
+    },
+    {
+      "id": "tom-cruise-ace-pro", "product": "Insta360 Ace Pro 2", "brand": "Insta360", "archetype": "celebrity_tech",
+      "celebrity": "Tom Cruise", "tagline": "NO STUNT TOO SMALL. NO CAMERA TOO BIG.",
+      "facts": ["8K Leica-glass action cam", "Moto mount: handlebar POV", "AI low-light night mode", "Flip screen for self-shots mid-stunt"],
+      "cta": "FOLLOW EZ GOOD FINDS — CONCEPT VISUAL", "tags": ["insta360 ace pro", "concept"]
+    },
+    {
+      "id": "doomsday-inreach", "product": "Garmin inReach Messenger", "brand": "Garmin", "archetype": "series",
+      "hook": "NO BARS? STILL MESSAGEABLE.", "tagline": "SATELLITE IN YOUR POCKET",
+      "facts": ["SOS to a 24/7 rescue centre", "Texts over satellite, no phone signal", "30-day battery in expedition mode", "Pairs with your phone for typing"],
+      "cta": "FOLLOW EZ GOOD FINDS — FILE #3 DECLASSIFIED", "tags": ["garmin inreach", "prepper tech"]
+    },
+    {
+      "id": "setup-budget-streamer", "product": "the sub-$500 streamer rack", "brand": "", "archetype": "series",
+      "hook": "A FULL STREAM SETUP FOR ONE CONSOLE PRICE.", "tagline": "BUDGET BUILD, PRO LOOK",
+      "facts": ["Used SFF PC: $220", "Fifine AM8 mic: $49", "Elgato-style light bar: $39", "RGB bias lighting: $18"],
+      "cta": "COMMENT WHO WE TOUR NEXT", "tags": ["desk setup", "streamer setup"]
+    },
+    {
+      "id": "trigger-controller", "product": "phone trigger controller grip", "brand": "", "archetype": "weird_gadget",
+      "angle": "physical L1/R1 triggers that clamp onto any phone",
+      "hook": "MOBILE GAMING JUST GOT DIFFERENT", "tagline": "GAME ON. FOR REAL.",
+      "facts": ["Physical triggers with tactile click", "Snap-on clamp fits any phone", "Cooling fan variant keeps FPS stable", "Zero bluetooth, zero latency"],
+      "cta": "FOLLOW EZ GOOD FINDS — AIM UPGRADED", "tags": ["mobile gaming", "pubg controller"]
+    },
+    {
+      "id": "birdfy-feeder", "product": "Birdfy smart bird feeder", "brand": "Netvue", "archetype": "weird_gadget",
+      "angle": "a bird feeder with an AI camera that names every visitor",
+      "hook": "YOUR GARDEN JUST GOT A SECURITY CAM.", "tagline": "AI KNOWS EVERY BIRD BY NAME",
+      "facts": ["AI identifies 6,000+ bird species", "1080p live stream to your phone", "Solar panel keeps it charged", "Squirrel alerts, sadly included"],
+      "cta": "FOLLOW EZ GOOD FINDS — NATURE, SMARTER", "tags": ["birdfy", "smart garden"]
+    },
+    {
+      "id": "sunrise-alarm", "product": "Philips SmartSleep sunrise lamp", "brand": "Philips", "archetype": "throw_away",
+      "replace_target": "bedside lamp + phone alarm", "tagline": "WAKE UP LIKE IT'S A VACATION.",
+      "facts": ["Sunrise simulates dawn 30 min before alarm", "Sunset fade for falling asleep", "FM-free: no radio, no doomscrolling", "Warm light doubles as reading lamp"],
+      "cta": "FOLLOW EZ GOOD FINDS — MORNINGS, FIXED", "tags": ["sunrise alarm", "sleep tech"]
+    },
+    {
+      "id": "gadget-court-ring", "product": "Oura Ring 4", "versus": "WHOOP 5.0", "archetype": "comparison",
+      "best_for_a": "invisible 24/7 tracking", "best_for_b": "athlete strain coaching",
+      "facts": ["Titanium, screenless", "Strap-based, screenless", "7-day battery", "14-day battery", "Subscription optional", "Subscription required", "Sleep labs love it", "Gym rats swear by it"],
+      "cta": "FOLLOW EZ GOOD FINDS — GADGET COURT ADJOURNS", "tags": ["oura ring", "whoop"]
+    }
+  ]
+}
