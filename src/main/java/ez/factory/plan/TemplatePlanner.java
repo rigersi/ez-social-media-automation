@@ -106,12 +106,23 @@ public final class TemplatePlanner {
             }
         }
 
+                if (p.quoteSource.isEmpty()) {
+            String creator = Json.str(topic, "creator", "");
+            if (!creator.isEmpty()) {
+                p.quoteSource = creator;
+                if (p.quote.isEmpty()) p.quote = Json.str(topic, "quote", "");
+                if (p.sources.isEmpty()) p.sources = Json.strList(topic, "sources");
+            }
+        }
         while (p.callouts.size() < Math.min(6, facts.size())) p.callouts.add(facts.get(p.callouts.size()));
         while (p.callouts.size() < 3) p.callouts.add("Owner-verified in the wild");
         p.cta = Json.str(topic, "cta", "FOLLOW EZ GOOD FINDS — GEAR THAT EARNS ITS SPACE");
+        p.assetPath = Json.str(topic, "asset", "");
         p.hashtags = new ArrayList<>(hashtagPick);
         p.ytTags = new ArrayList<>(ytPick);
-        p.artPrompt = ArtPromptBuilder.build(p, product);
+        p.product = product;
+        p.visual = Json.str(topic, "visual", "");
+        p.artPrompt = ArtPromptBuilder.build(p, product, p.visual);
         return p;
     }
 }

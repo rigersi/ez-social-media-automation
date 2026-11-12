@@ -1,0 +1,47 @@
+{
+  "_comment": "Fresh batch September 2026 — real launches, specs from launch-week press coverage. Drop newer batches here as new files; the factory reads every JSON in topics/custom/.",
+  "topics": [
+    {
+      "id": "watch-ultra-4", "product": "Apple Watch Ultra 4", "brand": "Apple", "archetype": "throw_away",
+      "replace_target": "charging habit", "tagline": "50 HOURS. ONE CHARGE.",
+      "visual": "a titanium Apple Watch Ultra 4 with a blazing OLED face resting on a wet rock at dawn, mountain ridge behind, cyan rim light",
+      "facts": ["50 h battery, 84 h in Low Power", "S11 chip with on-watch Siri AI", "15 min charge = 18 h of wear", "Health sensing reads HR every 5 s"],
+      "cta": "FOLLOW EZ GOOD FINDS — CHARGE LESS, LIVE MORE", "tags": ["apple watch ultra 4", "smartwatch"]
+    },
+    {
+      "id": "iphone-ultra-fold", "product": "iPhone Ultra foldable", "brand": "Apple", "archetype": "weird_gadget",
+      "hook": "POV: THE CREASE IS GONE.", "tagline": "FOLDABLE. FINALLY FLAT.",
+      "visual": "a premium foldable phone half-open like a book, light running along an invisible hinge line, no visible crease on the display",
+      "facts": ["The visible fold crease is gone", "Folds shut, opens tablet-flat", "$2,000 — Apple's boldest bet", "Landed 18 September 2026"],
+      "cta": "FOLLOW EZ GOOD FINDS — THE FOLD GROWS UP", "tags": ["iphone ultra", "foldable"]
+    },
+    {
+      "id": "msi-claw-8-ex", "product": "MSI Claw 8 EX AI+ handheld", "brand": "MSI", "archetype": "weird_gadget",
+      "hook": "POV: YOUR AAA LIBRARY FITS IN YOUR HANDS.", "tagline": "PCMag: FASTEST WINDOWS HANDHELD.",
+      "visual": "a white 8-inch gaming handheld with glowing sticks and triggers, AAA game art blazing on screen, dark room",
+      "facts": ["Intel Arc G3 Extreme + 32 GB RAM", "8-inch 120 Hz screen, 1 TB SSD", "PCMag: fastest Windows handheld", "About 3 h of AAA play per charge"],
+      "cta": "FOLLOW EZ GOOD FINDS — AAA ANYWHERE", "tags": ["msi claw", "handheld gaming"]
+    },
+    {
+      "id": "dyson-camerajet", "product": "Dyson CameraJet toothbrush", "brand": "Dyson", "archetype": "weird_gadget",
+      "hook": "POV: YOUR TOOTHBRUSH HAS EYES.", "tagline": "BRUSHES BACK.",
+      "visual": "a sleek Dyson toothbrush with a tiny camera ring and micro jet nozzle, bathroom mirror bokeh, clinical cyan light",
+      "facts": ["A camera inside your toothbrush", "AI reads 28 frames a second", "Aims a rinse jet at plaque it sees", "8 h battery, USB-C charged"],
+      "cta": "FOLLOW EZ GOOD FINDS — SMILE, YOU'RE ANALYSED", "tags": ["dyson", "smart toothbrush"]
+    },
+    {
+      "id": "polaroid-go-gen3", "product": "Polaroid Go Gen 3", "brand": "Polaroid", "archetype": "throw_away",
+      "replace_target": "camera roll", "tagline": "PRINT THE MOMENT.",
+      "visual": "a tiny pastel instant camera ejecting a developing photo, film pack beside it, warm window light",
+      "facts": ["World's smallest instant camera", "$89.99 — film $21.99 per 16", "Sharper shots, new viewfinder", "USB-C charged, double exposure"],
+      "cta": "FOLLOW EZ GOOD FINDS — HOLD YOUR PHOTOS", "tags": ["polaroid go", "instant camera"]
+    },
+    {
+      "id": "jbl-pulse-6", "product": "JBL Pulse 6 speaker", "brand": "JBL", "archetype": "weird_gadget",
+      "hook": "POV: THE SPEAKER IS THE LIGHT SHOW.", "tagline": "SOUND YOU CAN SEE.",
+      "visual": "a cylindrical speaker wrapped in 360-degree LED rings pulsing with colour waves, beach night bokeh behind",
+      "facts": ["360-degree light show synced to music", "$329.95 — IP68 dust + waterproof", "Beach-proof: sand and splashes shrug", "September 2026 release"],
+      "cta": "FOLLOW EZ GOOD FINDS — TURN UP THE COLOUR", "tags": ["jbl pulse 6", "bluetooth speaker"]
+    }
+  ]
+}

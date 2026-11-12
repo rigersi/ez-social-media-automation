@@ -1,6 +1,8 @@
 package ez.factory;
 
+import ez.factory.art.ArtGenerator;
 import ez.factory.art.ComfyUiGenerator;
+import ez.factory.art.GeminiImageGenerator;
 import ez.factory.config.Config;
 import ez.factory.feedback.Directive;
 import ez.factory.feedback.DirectiveStore;
@@ -59,16 +61,16 @@ public final class Main {
         LlmClient llm = buildLlm(cfg);
         Planner planner = new Planner(cfg, state, topics, trends, directives, llm);
         Publisher publisher = cfg.livePublish() ? new PostizPublisher(cfg) : new DryRunPublisher(cfg);
-        ComfyUiGenerator comfy = buildComfy(cfg);
+        ArtGenerator painter = buildPainter(cfg);
 
         switch (cmd) {
             case "daemon":
-                daemon(cfg, state, directives, planner, publisher, comfy);
+                daemon(cfg, state, directives, planner, publisher, painter);
                 break;
             case "run-once": {
                 directives.scanInbox(cfg.feedbackScreenshots);
                 Instant slot = slotFor(opts, cfg);
-                Map<String, Object> rec = new Pipeline(cfg, state, planner, directives, publisher, comfy).run(slot);
+                Map<String, Object> rec = new Pipeline(cfg, state, planner, directives, publisher, painter).run(slot);
                 System.out.println(Json.pretty(rec));
                 break;
             }
@@ -123,6 +125,20 @@ public final class Main {
         return new OpenAiCompatClient(cfg.openaiBaseUrl, cfg.openaiApiKey, cfg.openaiModel, cfg.llmTemperature);
     }
 
+    private static ArtGenerator buildPainter(Config cfg) {
+        String p = cfg.artProvider == null ? "auto" : cfg.artProvider.toLowerCase();
+        boolean wantGemini = !p.equals("comfy") && !p.equals("fallback");
+        if (wantGemini && !cfg.geminiApiKey.isEmpty()) {
+            Log.info(TAG, "art: " + new GeminiImageGenerator(cfg).name() + " painter enabled (paid, per-image)");
+            return new GeminiImageGenerator(cfg);
+        }
+        if (p.equals("gemini")) {
+            Log.warn(TAG, "art.provider=gemini but art.gemini.apiKey is empty — falling through to ComfyUI/fallback");
+        }
+        if (p.equals("fallback")) return null;
+        return buildComfy(cfg);
+    }
+
     private static ComfyUiGenerator buildComfy(Config cfg) {
         if ("fallback".equalsIgnoreCase(cfg.artMode)) return null;
         ComfyUiGenerator g = new ComfyUiGenerator(cfg);
@@ -140,7 +156,7 @@ public final class Main {
     }
 
     private static void daemon(Config cfg, StateStore state, DirectiveStore directives,
-                               Planner planner, Publisher publisher, ComfyUiGenerator comfy) throws Exception {
+                               Planner planner, Publisher publisher, ArtGenerator painter) throws Exception {
         FeedbackServer server = new FeedbackServer(cfg, directives, () -> status(cfg, state, directives));
         if (cfg.feedbackEnabled) server.start();
         Log.info(TAG, "daemon up. slots " + cfg.slotTimes + " " + cfg.timezone
@@ -159,7 +175,7 @@ public final class Main {
                 ZonedDateTime fireAt = target.minusMinutes(cfg.leadMinutes);
                 if (!now.isBefore(fireAt)) {
                     Log.info(TAG, "producing slot " + target);
-                    new Pipeline(cfg, state, planner, directives, publisher, comfy).run(target.toInstant());
+                    new Pipeline(cfg, state, planner, directives, publisher, painter).run(target.toInstant());
                 }
             } catch (Exception e) {
                 Log.err(TAG, "daemon loop error: " + e);

@@ -43,6 +43,9 @@ public final class PostPlan {
     // provenance / art
     public List<String> sources = new ArrayList<>();
     public String artPrompt = "";
+    public String product = "";   // real product name from the topic card (designer-mode hero)
+    public String visual = "";    // scene direction from the topic card
+    public String assetPath = "";   // optional real product cutout (transparent PNG) composited on the hero stage
     public String createdAt = Instant.now().toString();
 
     public String seriesLabel() {
@@ -75,6 +78,9 @@ public final class PostPlan {
         m.put("yt_tags", new ArrayList<Object>(ytTags));
         m.put("sources", new ArrayList<Object>(sources));
         m.put("art_prompt", artPrompt);
+        m.put("product", product);
+        m.put("visual", visual);
+        m.put("asset_path", assetPath);
         m.put("created_at", createdAt);
         return m;
     }
@@ -107,6 +113,9 @@ public final class PostPlan {
         p.ytTags = Json.strList(m, "yt_tags");
         p.sources = Json.strList(m, "sources");
         p.artPrompt = Json.str(m, "art_prompt", "");
+        p.product = Json.str(m, "product", "");
+        p.visual = Json.str(m, "visual", "");
+        p.assetPath = Json.str(m, "asset_path", "");
         p.createdAt = Json.str(m, "created_at", Instant.now().toString());
         return p;
     }

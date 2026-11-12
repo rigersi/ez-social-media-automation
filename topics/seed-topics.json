@@ -22,9 +22,10 @@
       "cta": "FOLLOW EZ GOOD FINDS — EYES, UPGRADED", "tags": ["smart glasses", "ray-ban meta"]
     },
     {
-      "id": "ipad-keyboard", "product": "floating cantilever iPad keyboard case", "brand": "", "archetype": "throw_away",
+      "id": "ipad-keyboard", "product": "Apple Magic Keyboard (iPad Pro, 2024)", "brand": "Apple", "archetype": "throw_away",
       "replace_target": "laptop", "tagline": "YOUR IPAD JUST GRADUATED.",
-      "facts": ["Cantilever hinge floats the screen at eye level", "7-colour backlight, full trackpad", "360° rotation: tablet, tent, laptop", "Types like a laptop, packs like a slate"],
+      "visual": "an iPad Pro floating on an aluminium cantilever Magic Keyboard at eye level, screen glowing, backlit keys, dark studio",
+      "facts": ["Aluminium cantilever hinge floats the screen", "Backlit keys + full function row", "Glass trackpad, USB-C passthrough", "Types like a laptop, packs like a slate"],
       "cta": "FOLLOW EZ GOOD FINDS — ONE BAG, ONE DEVICE", "tags": ["ipad pro", "keyboard case"]
     },
     {
@@ -36,13 +37,13 @@
     {
       "id": "airpods-vs-buds3", "product": "AirPods Pro 2", "versus": "Galaxy Buds3 Pro", "archetype": "comparison",
       "best_for_a": "Apple ecosystem switching", "best_for_b": "Android codec nerds (SSC hi-res)",
-      "facts": ["~$199", "~$229", "H2 adaptive ANC", "AI-driven ANC", "Lightning? No — USB-C case", "Blade lights + touch", "Spatial audio head-track", "24-bit hi-res over SSC"],
+      "facts": ["~$199", "~$229", "6 h buds + 30 h case", "6 h buds + 26 h case", "H2 adaptive ANC + spatial audio", "24-bit hi-res over SSC + blade lights", "Apple ecosystem pulls hardest", "Hi-res needs a Samsung phone"],
       "cta": "FOLLOW EZ GOOD FINDS — EARBUD COURT IS IN SESSION", "tags": ["airpods pro 2", "galaxy buds3 pro"]
     },
     {
       "id": "steamdeck-vs-ally", "product": "Steam Deck OLED", "versus": "ROG Ally X", "archetype": "comparison",
       "best_for_a": "battery life + plug-and-play", "best_for_b": "raw Windows power",
-      "facts": ["HDR OLED 90 Hz", "120 Hz VRR IPS", "~5 h indie play", "~3 h AAA play", "SteamOS sleeps instantly", "Windows = every launcher", "$549+", "$799+"],
+      "facts": ["$549+", "$799+", "~5 h indie play", "~3 h AAA play", "HDR OLED 90 Hz + instant sleep", "120 Hz VRR + every Windows launcher", "AAA anti-cheat gaps", "Windows battery drain"],
       "cta": "FOLLOW EZ GOOD FINDS — HANDHELD WAR CONTINUES", "tags": ["steam deck", "rog ally"]
     },
     {
@@ -113,7 +114,7 @@
     {
       "id": "gadget-court-ring", "product": "Oura Ring 4", "versus": "WHOOP 5.0", "archetype": "comparison",
       "best_for_a": "invisible 24/7 tracking", "best_for_b": "athlete strain coaching",
-      "facts": ["Titanium, screenless", "Strap-based, screenless", "7-day battery", "14-day battery", "Subscription optional", "Subscription required", "Sleep labs love it", "Gym rats swear by it"],
+      "facts": ["$349, sub optional", "Free device, sub required", "7-day battery", "14-day battery", "Titanium, screenless comfort", "Strain coaching athletes trust", "Sleep-first, not coaching", "Subscription never ends"],
       "cta": "FOLLOW EZ GOOD FINDS — GADGET COURT ADJOURNS", "tags": ["oura ring", "whoop"]
     }
   ]

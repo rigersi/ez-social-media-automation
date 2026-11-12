@@ -46,7 +46,16 @@ public final class Config {
     public final String comfyPromptNodeId;
     public final String comfyPromptField;
     public final String comfyBaseImageNodeId; // LoadImage node fed with the deterministic base layout ("" = none)
+    public final String comfyMaskImageNodeId; // LoadImage node fed with the hero-stage mask
+    public final String comfyPolishPromptNodeId; // second text node receiving the polish prompt
     public final int comfyTimeoutSec;
+
+    // art provider selection (paid painter first, ComfyUI second, skeleton last)
+    public final String artProvider;          // auto | gemini | comfy | fallback
+    public final String geminiApiKey;         // Google AI Studio key (AIza...) — empty = gemini off
+    public final String geminiModel;          // e.g. gemini-3.1-flash-image | gemini-3-pro-image
+    public final int geminiMonthlyCap;        // max paid paints per month (0 = unlimited); hard stop enforced locally
+    public final String artPosterMode;        // designer (Nano Banana designs the whole poster) | window (paint hero rect only)
 
     // video
     public final boolean videoEnabled;
@@ -118,7 +127,17 @@ public final class Config {
         comfyPromptNodeId = Json.str(comfy, "promptNodeId", "6");
         comfyPromptField = Json.str(comfy, "promptField", "text");
         comfyBaseImageNodeId = Json.str(comfy, "baseImageNodeId", "");
+        comfyMaskImageNodeId = Json.str(comfy, "maskImageNodeId", "42");
+        comfyPolishPromptNodeId = Json.str(comfy, "polishPromptNodeId", "62");
         comfyTimeoutSec = Json.int_(comfy, "timeoutSeconds", 900);
+
+        Map<String, Object> art = Json.sub(r, "art");
+        artProvider = Json.str(art, "provider", "auto");
+        Map<String, Object> gem = Json.sub(art, "gemini");
+        geminiApiKey = Json.str(gem, "apiKey", "");
+        geminiModel = Json.str(gem, "model", "gemini-3.1-flash-image");
+        geminiMonthlyCap = Json.int_(gem, "monthlyCapImages", 70);
+        artPosterMode = Json.str(art, "posterMode", "designer");
 
         Map<String, Object> video = Json.sub(r, "video");
         videoEnabled = Json.bool(video, "enabled", true);

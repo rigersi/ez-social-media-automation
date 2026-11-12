@@ -2,6 +2,8 @@ package ez.factory;
 
 import ez.factory.art.ComfyUiGenerator;
 import ez.factory.art.FallbackRenderer;
+import ez.factory.art.HeroMask;
+import ez.factory.art.ArtGenerator;
 import ez.factory.brand.BrandStamp;
 import ez.factory.config.Config;
 import ez.factory.feedback.DirectiveStore;
@@ -37,17 +39,17 @@ public final class Pipeline {
     private final DirectiveStore directives;
     private final Publisher publisher;
     private final FallbackRenderer renderer;
-    private final ComfyUiGenerator comfy; // null when disabled
+    private final ArtGenerator painter; // null when disabled (Gemini, ComfyUI or none)
 
     public Pipeline(Config cfg, StateStore state, Planner planner, DirectiveStore directives,
-                    Publisher publisher, ComfyUiGenerator comfy) {
+                    Publisher publisher, ArtGenerator painter) {
         this.cfg = cfg;
         this.state = state;
         this.planner = planner;
         this.directives = directives;
         this.publisher = publisher;
         this.renderer = new FallbackRenderer(cfg);
-        this.comfy = comfy;
+        this.painter = painter;
     }
 
     public Map<String, Object> run(Instant slotTime) {
@@ -66,14 +68,16 @@ public final class Pipeline {
             try {
                 PostPlan plan = planner.plan();
                 File base = new File(artDir, plan.id + "-layout.png");
-                renderer.generate(plan, base);
+                renderer.generate(plan, base, null);
+                File mask = new File(artDir, plan.id + "-mask.png");
+                HeroMask.make(cfg, mask);
 
                 File art = base;
-                if (comfy != null) {
+                if (painter != null) {
                     try {
-                        art = comfy.generate(plan, base);
+                        art = painter.generate(plan, base, mask);
                     } catch (Exception e) {
-                        Log.warn(TAG, "ComfyUI pass failed (" + e.getMessage() + ") — using deterministic base layout");
+                        Log.warn(TAG, "paint pass failed (" + e.getMessage() + ") — using deterministic base layout");
                         art = base;
                     }
                 }

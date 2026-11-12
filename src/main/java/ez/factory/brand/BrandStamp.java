@@ -53,9 +53,14 @@ public final class BrandStamp {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         int x = cfg.logoMargin, y = cfg.logoMargin;
-        // dark halo
-        g.setColor(new Color(0, 0, 0, 150));
-        g.fill(new RoundRectangle2D.Float(x - 14, y - 14, w + 28, h + 28, 26, 26));
+
+        // soft dark halo (radial glow — no visible box edges)
+        float cx = x + w / 2f, cy = y + h / 2f;
+        float radius = Math.max(w, h) * 0.9f;
+        g.setPaint(new java.awt.RadialGradientPaint(cx, cy, radius,
+                new float[] { 0f, 0.55f, 1f },
+                new Color[] { new Color(0, 0, 0, 150), new Color(0, 0, 0, 80), new Color(0, 0, 0, 0) }));
+        g.fill(new java.awt.geom.Ellipse2D.Float(cx - radius, cy - radius, radius * 2, radius * 2));
         g.drawImage(tinted, x, y, w, h, null);
         g.dispose();
 

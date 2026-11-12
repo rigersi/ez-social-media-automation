@@ -92,8 +92,17 @@ public final class Planner {
 
         plan.id = "p-" + UUID.randomUUID().toString().substring(0, 8);
         plan.hashtags = enforcePool(plan.hashtags, hashtags);
+        if (plan.assetPath == null || plan.assetPath.isEmpty()) {
+            plan.assetPath = topic == null ? "" : Json.str(topic, "asset", "");
+        }
+        if (plan.product == null || plan.product.isEmpty()) {
+            plan.product = topic == null ? "the gadget" : Json.str(topic, "product", "the gadget");
+        }
+        if (plan.visual == null || plan.visual.isEmpty()) {
+            plan.visual = topic == null ? "" : Json.str(topic, "visual", "");
+        }
         if (plan.artPrompt == null || plan.artPrompt.isEmpty()) {
-            plan.artPrompt = ArtPromptBuilder.build(plan, Json.str(topic, "product", "the gadget"));
+            plan.artPrompt = ArtPromptBuilder.build(plan, plan.product, plan.visual);
         }
         state.pushArchetype(a.id);
         if (topic != null) state.markTopicUsed(Json.str(topic, "id", ""));
@@ -203,7 +212,11 @@ public final class Planner {
              + "Return ONLY one strict JSON object with keys: archetype, hook, headline, accent, callouts[3..8 strings <=60 chars], "
              + "table (only for comparison: rows of [label, productA, productB]), verdict_a, verdict_b, quote, quote_source, sources[], "
              + "concept_visual (true for fictional celebrity pairings), series_tag, cta, caption (120..2200 chars, multi-paragraph, ends with a question or CTA), "
-             + "hashtags (ONLY from the provided list), yt_tags (5..30 plain phrases), art_prompt (instruction for the poster artist; MUST state: keep top-left logo zone empty, keep TikTok/Shorts safe zones calm).";
+             + "hashtags (ONLY from the provided list), yt_tags (5..30 plain phrases), "
+             + "art_prompt (MAX 60 words, imperative, in this order: 1) 'Keep every existing text block, card and table exactly where it is, crisp and word-for-word unchanged.' "
+             + "2) one sentence naming the hero visual to paint into the empty middle stage. "
+             + "3) 'Keep the top-left logo zone empty and the right-side and bottom safe zones calm.' "
+             + "NEVER mention the brand name inside art_prompt — the image model paints it as a hallucinated wordmark).";
     }
 
     private String userPrompt(Archetype a, Map<String, Object> topic, String seriesName, int seriesNumber,
